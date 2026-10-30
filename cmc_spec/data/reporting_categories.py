@@ -455,7 +455,7 @@ REPORTING_CATEGORIES: tuple[ReportingCategory, ...] = (
         rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.ID_BPOM].strid,
         filing_route=FilingRoute.NOTIFY_AT_IMPLEMENTATION,
     ),
-    # Viet Nam: national scheme (E4). Routes from E2; the notification route is an open question.
+    # Vietnam: national scheme (E4). Routes from E2; the notification route is an open question.
     ReportingCategory(
         strid=seed_strid("reporting_category", ReportingCategoryCode.VN_MAV),
         code=ReportingCategoryCode.VN_MAV,

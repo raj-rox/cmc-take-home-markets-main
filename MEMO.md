@@ -51,7 +51,7 @@ flowchart LR
 ## ⚠️ Deliberately not modelled
  
 > [!WARNING]
-> **Markets and product types with no confirmed rule set:** every product in Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste; biologics in Argentina (Disp. 4351/2026, categories not in the evidence) and in Singapore, Malaysia, the Philippines, Indonesia and Viet Nam (the AVG excludes biologics).
+> **Markets and product types with no confirmed rule set:** every product in Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste; biologics in Argentina (Disp. 4351/2026, categories not in the evidence) and in Singapore, Malaysia, the Philippines, Indonesia and Vietnam (the AVG excludes biologics).
 > **v1:** "rule set unknown" (AC2.5); the user records a filing route without a category, plus reasoning.
 > **Model it when:** the domain team confirms the categories from a primary source. Each is a new rule set row, not a schema change.
  
@@ -90,4 +90,4 @@ flowchart LR
 > | Do the ASEAN national schemes cover biologics? Not seeded, so biologics there show "rule set unknown". | Domain team (ASEAN regulatory lead) |
 > | Which categories apply in each unconfirmed ASEAN country? Does Brunei's MaV/MiV procedure count as the AVG? | Domain team (ASEAN regulatory lead) |
 > | Thailand cites the AVG "alongside other frameworks". Which one wins on a conflict? | Domain team |
-> | Is Viet Nam’s minor notification “notify at implementation” or “notify then wait”? | Domain team |
+> | Is Vietnam’s minor notification “notify at implementation” or “notify then wait”? | Domain team |

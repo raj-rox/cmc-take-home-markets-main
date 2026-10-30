@@ -72,11 +72,11 @@ These words name the concepts in the model and are used with one meaning through
 - **AC2.2** In Brazil, a synthetic product gets RDC 73/2016 and a biological product gets RDC 913/2024.
 - **AC2.3** A UK licence gets the MHRA rule set. A Swiss licence gets the Swissmedic rule set. Neither gets the EU rule set.
 - **AC2.4** A German national licence and an EU centralised licence covering Germany get the same EU rule set.
-- **AC2.5** Where no rule set is recorded for a market and product type, the system shows "rule set unknown" and does not fall back to another rule set (such as the ASEAN guideline). Currently: Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste for all products; biologics in Argentina, Singapore, Malaysia, the Philippines, Indonesia and VietNam.
+- **AC2.5** Where no rule set is recorded for a market and product type, the system shows "rule set unknown" and does not fall back to another rule set (such as the ASEAN guideline). Currently: Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste for all products; biologics in Argentina, Singapore, Malaysia, the Philippines, Indonesia and Vietnam.
 - **AC2.6** No market gets the ASEAN Variation Guideline (AVG) as its rule set unless a primary source shows that market adopts it. Nobody files under the AVG itself; every ASEAN member applies its own scheme.
   - Malaysia gets its own rule set, the Malaysian Variation Guideline (2nd ed., July 2022). It is based on AVG Rev 2, but its `MaV`, `MiV-PA` and `MiV-N` are Malaysia's own categories.
   - The Philippines gets its own rule set, the Philippine Variation Guidelines (V1.0, 2020). Its `MaV`, `MiV-PA` and `MiV-N` are the Philippines' own categories, though they share the AVG's labels. The national `MaV-PH`, `MiV-PH` and `MiV-PH-N` codes it prints are change types within those categories, not extra categories.
-  - Singapore, Indonesia and Viet Nam each get their own national rule set (HSA's categories, PerBPOM 24/2017 as amended, Circular 12/2025/TT-BYT).
+  - Singapore, Indonesia and Vietnam each get their own national rule set (HSA's categories, PerBPOM 24/2017 as amended, Circular 12/2025/TT-BYT).
   - Brunei shows "rule set unknown". The primary source shows only that BDMCA publishes MaV/MiV submission procedures, not that it adopts the AVG or what its full category list is.
   - Thailand shows "rule set unknown" until checked. The Thai FDA cites the AVG "alongside other frameworks", which doesn't establish which categories apply.
 - **AC2.7** A product can't be recorded without a product type (synthetic or biological).

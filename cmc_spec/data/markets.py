@@ -119,7 +119,7 @@ MARKETS: tuple[Market, ...] = (
     Market(
         strid=seed_strid("market", MarketCode.VN),
         code=MarketCode.VN,
-        name="Viet Nam",
+        name="Vietnam",
     ),
 )
 
