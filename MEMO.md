@@ -1,7 +1,7 @@
 # 🧭 MEMO: where a change must be classified
  
 > [!TIP]
-> **One-line version:** a user classifies each **licence** a change touches. The licence's **markets** and the product's **type** decide which **rule set** applies, and the rule set offers the **categories** to pick from.
+> A user classifies each **licence** a change touches. The licence's **markets** and the product's **type** decide which **rule set** applies, and the rule set offers the **categories** to pick from.
  
 **Colour key:** 🟨 existing · 🟦 reference data (seeded) · 🟩 customer data (written by users)
  
