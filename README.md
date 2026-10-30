@@ -51,3 +51,4 @@ AI tools are welcome. Your submission is due **24 hours after the assignment ema
 There is nothing to install. The models are plain Python files using [Pydantic](https://docs.pydantic.dev), and you can write them in any editor. If you want to check that a file loads, run `pip install -U pydantic` (Python 3.11 or later), then `python -c "import cmc_spec.data.dosage_forms"` from this folder, with your own module in place of `dosage_forms`.
 
 Follow the worked example's patterns. A model references another through a `*_strid` field typed with that model's `Ref` alias. A seeded list is a `@reference_data` model keyed on a `ReferenceCode`, with its rows written out in full in `data/`.
+©
