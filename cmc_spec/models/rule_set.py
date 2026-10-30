@@ -12,7 +12,22 @@ from cmc_spec.models.product_type import ProductTypeRef
 
 
 class RuleSetCode(ReferenceCode):
-    """Codes are added with the seed rows in `data/rule_sets.py`."""
+    US_CFR_314_70 = "US_CFR_314_70"
+    EU_VARIATIONS = "EU_VARIATIONS"
+    UK_VARIATIONS = "UK_VARIATIONS"
+    CH_VARIATIONS = "CH_VARIATIONS"
+    SA_VARIATIONS = "SA_VARIATIONS"
+    ZA_VARIATIONS = "ZA_VARIATIONS"
+    SG_HSA = "SG_HSA"
+    MY_MVG = "MY_MVG"
+    PH_PVG = "PH_PVG"
+    ID_BPOM = "ID_BPOM"
+    VN_DAV = "VN_DAV"
+    CN_POST_APPROVAL = "CN_POST_APPROVAL"
+    BR_RDC_73_2016 = "BR_RDC_73_2016"
+    BR_RDC_913_2024 = "BR_RDC_913_2024"
+    MX_MCRS = "MX_MCRS"
+    AR_REM = "AR_REM"
 
 
 @reference_data

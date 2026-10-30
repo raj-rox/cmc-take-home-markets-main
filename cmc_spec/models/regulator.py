@@ -11,7 +11,30 @@ from cmc_spec.models.market import MarketRef
 
 
 class RegulatorCode(ReferenceCode):
-    """Codes are added with the seed rows in `data/regulators.py`."""
+    FDA = "FDA"
+    EC_EMA = "EC_EMA"
+    BFARM = "BFARM"
+    ANSM = "ANSM"
+    NOMA = "NOMA"
+    MHRA = "MHRA"
+    SWISSMEDIC = "SWISSMEDIC"
+    SFDA = "SFDA"
+    SAHPRA = "SAHPRA"
+    BDMCA = "BDMCA"
+    KH_DDF = "KH_DDF"
+    BPOM = "BPOM"
+    LA_FDD = "LA_FDD"
+    NPRA = "NPRA"
+    MM_DFDA = "MM_DFDA"
+    FDA_PH = "FDA_PH"
+    HSA = "HSA"
+    THAI_FDA = "THAI_FDA"
+    TL_DNFM = "TL_DNFM"
+    DAV = "DAV"
+    NMPA = "NMPA"
+    ANVISA = "ANVISA"
+    COFEPRIS = "COFEPRIS"
+    ANMAT = "ANMAT"
 
 
 @reference_data
