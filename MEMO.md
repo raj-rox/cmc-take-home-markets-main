@@ -51,9 +51,9 @@ flowchart LR
 ## ⚠️ Deliberately not modelled
  
 > [!WARNING]
-> **Countries with no confirmed rule set** (Brunei, Cambodia, Lao PDR, Myanmar, Thailand, Timor-Leste)
-> **v1:** the user records a filing route without a category, plus reasoning.
-> **Model it when:** the domain team confirms each country's categories from a primary source.
+> **Markets and product types with no confirmed rule set:** every product in Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste; biologics in Argentina (Disp. 4351/2026, categories not in the evidence) and in Singapore, Malaysia, the Philippines, Indonesia and Viet Nam (the AVG excludes biologics).
+> **v1:** "rule set unknown" (AC2.5); the user records a filing route without a category, plus reasoning.
+> **Model it when:** the domain team confirms the categories from a primary source. Each is a new rule set row, not a schema change.
  
 > [!WARNING]
 > **Rule set editions** (e.g. EU 2024/1701 replacing the old regulation)
