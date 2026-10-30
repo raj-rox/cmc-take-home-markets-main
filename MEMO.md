@@ -16,7 +16,7 @@
 
 | Question | Who should answer |
 |---|---|
-| **Rule set not established by the evidence:** what scheme applies in Cambodia, Lao PDR, Myanmar, Timor-Leste and Brunei? E2 says they use the ASEAN guideline, but E4's primary sources don't establish it. | The regulatory team's primary-source review |
+| **Rule set not established by the evidence:** what scheme applies in Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste? E2 says most of them use the ASEAN guideline, but E4's primary sources don't establish it. Thailand cites the AVG "alongside other frameworks". | The regulatory team's primary-source review |
 | **Rule set exists but isn't seeded:** US biologics (21 CFR 601.12) and Argentine biologics (Disp. 4351/2026) categories. | Whoever maintains the reference data |
 | **UK `IA`:** it can be filed individually within 12 months or grouped, so it doesn't sit cleanly in one filing route. Seeded as do and document, following E3. | The regulatory team (UK specialist) |
 | **Extensions:** E3 tags the UK and Swiss `EXT` as prior approval but the EU and South African `EXT` as registration. All are seeded as new application. | The regulatory team |

@@ -2,7 +2,7 @@
 
 ## The journey today
 
-Today an impact assessment is a position no system holds. It runs on documents, spreadsheets and institutional memory. To answer "what does this change mean everywhere we're licensed?", the regulatory lead interviews the villages: the registration spreadsheet, the country matrix, the affiliate who remembers how Brazil treats biologics.
+Today an impact assessment is a position no system holds. It runs on documents, spreadsheets and institutional memory. To answer "what does this change mean everywhere we're licensed?", the regulatory lead pieces it together from scattered sources: the registration spreadsheet, the country matrix, the affiliate who remembers how Brazil treats biologics.
 
 **Who is involved**
 - **Change owner:** QA or manufacturing at the site.
@@ -72,10 +72,13 @@ These words name the concepts in the model and are used with one meaning through
 - **AC2.2** In Brazil, a synthetic product gets RDC 73/2016 and a biological product gets RDC 913/2024.
 - **AC2.3** A UK licence gets the MHRA rule set. A Swiss licence gets the Swissmedic rule set. Neither gets the EU rule set.
 - **AC2.4** A German national licence and an EU centralised licence covering Germany get the same EU rule set.
-- **AC2.5** Where no rule set is recorded for a market and product type, the system shows "rule set unknown" and does not fall back to another rule set (such as the ASEAN guideline). Current examples: Cambodia, Lao PDR, Myanmar, Timor-Leste; US biologics; Argentine biologics.
+- **AC2.5** Where no rule set is recorded for a market and product type, the system shows "rule set unknown" and does not fall back to another rule set (such as the ASEAN guideline). Current examples: Brunei, Cambodia, Lao PDR, Myanmar, Thailand, Timor-Leste; US biologics; Argentine biologics.
 - **AC2.6** No market gets the ASEAN Variation Guideline (AVG) as its rule set unless a primary source shows that market adopts it. Nobody files under the AVG itself; every ASEAN member applies its own scheme.
   - Malaysia gets its own rule set, the Malaysian Variation Guideline (2nd ed., July 2022). It is based on AVG Rev 2, but its `MaV`, `MiV-PA` and `MiV-N` are Malaysia's own categories.
+  - The Philippines gets its own rule set, the Philippine Variation Guidelines (V1.0, 2020). It prints national `MaV-PH`, `MiV-PH` and `MiV-PH-N` families alongside AVG-numbered entries, and all of them are the Philippines' own categories.
+  - Singapore, Indonesia and Viet Nam each get their own national rule set (HSA's categories, PerBPOM 24/2017 as amended, Circular 12/2025/TT-BYT).
   - Brunei shows "rule set unknown". The primary source shows only that BDMCA publishes MaV/MiV submission procedures, not that it adopts the AVG or what its full category list is.
+  - Thailand shows "rule set unknown" until checked. The Thai FDA cites the AVG "alongside other frameworks", which doesn't establish which categories apply.
 - **AC2.7** A product can't be recorded without a product type (synthetic or biological).
 
 ### S3. See the categories a rule set allows
@@ -116,5 +119,5 @@ These words name the concepts in the model and are used with one meaning through
 *As the RA CMC lead presenting to the change board, I see every product and market on the change with its category and filing route. I can show which markets need prior approval and that nothing has been left out.*
 
 - **AC7.1** The view has one row per market each licence covers, showing product, market, regulator, category and filing route.
-- **AC7.2** The assessment counts as complete only when no classification is still not yet classified. The number of licences still open is shown.
+- **AC7.2** The assessment counts as complete only when no classification is still not yet classified and no affected product is missing a licence. The number of licences still open, and of products without a licence, is shown.
 - **AC7.3** The view can be filtered to the market rows whose filing route is prior approval. This includes classifications whose route was recorded without a category (AC6.2).
