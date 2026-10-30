@@ -1,30 +1,84 @@
-# Memo
-
-*Draft: edge cases and open questions are collected here as the stories are written. Core concepts and the model diagram come after step 5.*
-
-## Edge cases deliberately not modelled
-
-| Edge case | How v1 copes | What would trigger modelling it |
-|---|---|---|
-| **Two licences for one product in one market**, for example separate licences for different strengths. AC1.3 allows at most one. | Record each separately licensed presentation as its own product, so each product still has one licence per market. | Customers' registration data shows several licences per product per market is common, or splitting products distorts which products a change touches. |
-| **Mutual-recognition and decentralised licences:** several national licences, one variation. AC5.4 keeps one classification per licence, so nothing keeps Germany's and France's national licences aligned. | Each national licence is classified separately. All share the EU rule set, so the same category is available to each, but the user keeps them consistent by hand. | Classifications in one mutual-recognition or decentralised family are found to disagree, or customers hold many such licences. Fix: link the licences in a procedure. |
-| **A second national regulator by product type.** Germany licenses vaccines and blood products through the Paul-Ehrlich-Institut, not BfArM. | A German national licence for such a product is recorded against BfArM. | A customer holds German national licences for biologics. Fix: one more regulator row. |
-| **Saudi Arabia's GCC centralised route.** A product can also be authorised through the GCC-DR route (E2). | Only the SFDA licence is recorded. | A customer uses the GCC route for Saudi licences. |
-| **Classification that depends on what changed.** South Africa requires prior approval for name and scheduling changes even at IB. | The user picks the category that applies and says why in the reasoning. | Such rules turn out to be common enough that users get them wrong. |
-| **Filing body differs from licensing body.** China's record-filings (`REC`) go to the provincial MPA, and EU centralised variations go to EMA, not the Commission. | The licence's regulator is the licensing body; where filings go is out of scope. | Filing planning comes into scope. |
-| **No rule-set history.** Each rule set holds only its current edition (AC3.4), so a past classification can't show which edition it was made under. | The reasoning cites the guideline condition and edition. | An audit or inspection needs proof of the edition that applied, or a fast-changing market (Viet Nam: three circulars in seven years) moves while assessments are in flight. |
-| **No regional sign-off.** The journey has regional RA confirming each classification, but v1 records no approval. | Reviewers read the reasoning (AC5.2). | A need to record who approved each market's classification. |
-| **Only two product types.** China separates chemical drugs, biologics and TCM. | Product type is a seeded list with two rows; China has one rule set for both. | A TCM product (or another type with its own rules) is brought in. It's a new row, not a schema change. |
-
-## Open questions
-
-| Question | Who should answer |
-|---|---|
-| **Rule set not established by the evidence:** what scheme applies in Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste? E2 says most of them use the ASEAN guideline, but E4's primary sources don't establish it. Thailand cites the AVG "alongside other frameworks". | The regulatory team's primary-source review |
-| **Rule set exists but isn't seeded:** US biologics (21 CFR 601.12), Argentine biologics (Disp. 4351/2026), and Mexico's extra biologics categories (administrativa / técnica / cesión de derechos). | Whoever maintains the reference data |
-| **UK and South African `IA`:** the UK's can be filed individually within 12 months or grouped; South Africa's is called "Do and Tell" but has a quality annual notification. Neither sits cleanly in one filing route. Both are seeded as do and document, following E3. | The regulatory team (UK and South Africa specialists) |
-| **Extensions:** E3 tags the UK and Swiss `EXT` as prior approval but the EU and South African `EXT` as registration. All are seeded as new application. | The regulatory team |
-| **US `PQS-NOFILE`:** E3 lists a US no-filing category; E2 says the US has no such tier. Not seeded: a change kept inside the quality system is recorded as not affected. | The regulatory team (US specialist) |
-| **ASEAN biologics:** do the Singapore, Malaysia, Philippines, Indonesia and Viet Nam schemes cover biologics? The AVG excludes them, and E2 says Malaysia handles them separately. Seeded as synthetic only, so biologics there show "rule set unknown". | The regulatory team's primary-source review |
-| **Indonesia and Viet Nam filing routes:** E4 confirms only that the schemes are national; the routes come from E2. Viet Nam's notification (~20 working days) may be notify then wait rather than notify at implementation. | The regulatory team (ASEAN specialist) |
-| **The journey:** the roles and order of work are general industry practice, not observed. | RA users (CMC leads and RA operations) at a customer |
+# 🧭 MEMO: where a change must be classified
+ 
+> [!TIP]
+> **One-line version:** a user classifies each **licence** a change touches. The licence's **markets** and the product's **type** decide which **rule set** applies, and the rule set offers the **categories** to pick from.
+ 
+**Colour key:** 🟨 existing · 🟦 reference data (seeded) · 🟩 customer data (written by users)
+ 
+---
+ 
+## 🗺️ The model
+ 
+```mermaid
+flowchart LR
+  CH[Change]:::existing -- "touches 1..n" --> PR[Product]:::existing
+  PR -- "has 1" --> PT[ProductType]:::ref
+  LI[Licence]:::txn -- "for 1" --> PR
+  LI -- "granted by 1" --> RG[Regulator]:::ref
+  LI -- "covers 1..n" --> MK[Market]:::ref
+  RG -- "acts for 1..n" --> MK
+  RS[RuleSet]:::ref -- "applies in 1..n" --> MK
+  RS -- "applies to 1..n" --> PT
+  RC[ReportingCategory]:::ref -- "belongs to 1" --> RS
+  CL[Classification]:::txn -- "on 1" --> CH
+  CL -- "for 1" --> LI
+  CL -. "0..1" .-> RC
+  classDef existing fill:#FFF4CC,stroke:#C9A400,color:#333
+  classDef ref fill:#DCEBFF,stroke:#3B7DD8,color:#333
+  classDef txn fill:#DDF5E3,stroke:#2E9E55,color:#333
+```
+ 
+## 🧱 Core concepts
+ 
+| | Concept | What it is | Why it exists |
+|---|---|---|---|
+| 🟦 | **Market** | A country a licence can cover (ISO code) | Users see results per country |
+| 🟦 | **Regulator** | Body that grants licences, acting for 1+ markets | The EC covers all EU/EEA; BfArM only Germany |
+| 🟦 | **ProductType** | Synthetic or biological | Brazil has a separate rule set for each |
+| 🟦 | **RuleSet** | A published scheme of categories for market × product type pairs | Where the categories come from |
+| 🟦 | **ReportingCategory** | One category in one rule set, plus its **FilingRoute** | What the user picks; route makes markets comparable |
+| 🟩 | **Licence** | A product's authorisation from one regulator, covering 1+ markets | One EU centralised licence = one row, many markets |
+| 🟩 | **Classification** | One change × one licence: category, route only, or "not affected", with reasoning | The thing the user records |
+ 
+## 🎯 Key decisions
+ 
+- **Rule set ≠ regulator.** The UK, Switzerland, Saudi Arabia and South Africa reuse EU labels (`IA`, `IB`, `II`) but are separate rule sets. Codes are prefixed (`EU_IB`, `UK_IB`) so they never collide.
+- **ASEAN is not a rule set.** Nobody files with ACCSQ-PPWG. Each member gets its own national rule set only where a primary source confirms one (E4). I relied on **E4 over E2**, e.g. for Cambodia.
+- **Classify the licence, not the market.** One centralised EU licence gets one answer, shown in every market it covers.
+- **Not stored, computed:** a licence's rule set (from its markets + product type) and "not yet classified" (an affected licence with no classification row).
+---
+ 
+## ⚠️ Deliberately not modelled
+ 
+> [!WARNING]
+> **Countries with no confirmed rule set** (Brunei, Cambodia, Lao PDR, Myanmar, Thailand, Timor-Leste)
+> **v1:** the user records a filing route without a category, plus reasoning.
+> **Model it when:** the domain team confirms each country's categories from a primary source.
+ 
+> [!WARNING]
+> **Rule set editions** (e.g. EU 2024/1701 replacing the old regulation)
+> **v1:** only the current edition is held and updated in place. Reasoning is kept on each classification.
+> **Model it when:** auditors need to see which edition a past classification was made under.
+ 
+> [!WARNING]
+> **EU procedure routes** (MRP / DCP / national)
+> **v1:** each national licence is its own row under its national regulator. Same rule set either way.
+> **Model it when:** filing planning comes into scope (coordination differs by route).
+ 
+> [!WARNING]
+> **One change that triggers several categories on one licence** (EU grouping)
+> **v1:** record the most restrictive category; note the rest in reasoning.
+> **Model it when:** grouping or worksharing decisions come into scope.
+ 
+---
+ 
+## ❓ Open questions
+ 
+> [!IMPORTANT]
+> | Question | Who decides |
+> |---|---|
+> | Which categories apply in each unconfirmed ASEAN country? Does Brunei's MaV/MiV procedure count as the AVG? | Domain team (ASEAN regulatory lead) |
+> | Thailand cites the AVG "alongside other frameworks". Which one wins on a conflict? | Domain team |
+> | Are two product types enough, or do vaccines, ATMPs or herbals need their own rule sets? | Domain team |
+> | Must every classification record the rule set edition it used? | Product + QA / compliance |
+ 
