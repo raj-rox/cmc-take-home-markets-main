@@ -80,6 +80,7 @@ flowchart LR
 > | Are two product types enough, or do vaccines, ATMPs or herbals need their own rule sets? | Domain team |
 > | Must every classification record the rule set edition it used? | Product + QA / compliance |
 > | E3 lists a US no-filing category (`PQS-NOFILE`); E2 says the US has no such tier. Seeded following E3. Is it real? | Domain team (US regulatory specialist) |
+> | Do Mexico's MCRS tiers and the ASEAN national schemes cover biologics? Not seeded, so biologics there show "rule set unknown". | Domain team |
 > | Which categories apply in each unconfirmed ASEAN country? Does Brunei's MaV/MiV procedure count as the AVG? | Domain team (ASEAN regulatory lead) |
 > | Thailand cites the AVG "alongside other frameworks". Which one wins on a conflict? | Domain team |
 > | Is Viet Nam’s minor notification “notify at implementation” or “notify then wait”? | Domain team |

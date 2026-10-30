@@ -47,7 +47,7 @@ These words name the concepts in the model and are used with one meaning through
   | Prior approval | File first; implement only once the regulator approves. | US `PAS`, EU `II` |
   | Notify then wait | File first; implement after a set standstill unless the regulator objects. | US `CBE-30`, EU `IB`, Singapore `MIV-2-NOTIFICATION` |
   | Notify at implementation | Implement, then file an individual notification at once or within a set window. | US `CBE-0`, EU `IA_IN`, Singapore `MIV-2-DO-AND-TELL` |
-  | Do and document | Implement and record it; report only in a periodic, bundled filing or in the company's own change history. | US `AR` (annual report), EU `IA` (annual update), Brazil `BR-SYN-HMP` |
+  | Do and document | Implement and record it; report only in a periodic, bundled filing or in the company's own change history. | US `AR` (annual report), EU `IA` (annual update), Brazil `SYN-HMP` |
   | No filing | Never reported to the regulator. | US `PQS-NOFILE`, Singapore `NO-NOTIFICATION` |
   | New application | Can't be filed as a variation at all; needs an extension or new licence application. | EU `EXT`, Saudi `NEW-APP` |
 
@@ -72,7 +72,7 @@ These words name the concepts in the model and are used with one meaning through
 - **AC2.2** In Brazil, a synthetic product gets RDC 73/2016 and a biological product gets RDC 913/2024.
 - **AC2.3** A UK licence gets the MHRA rule set. A Swiss licence gets the Swissmedic rule set. Neither gets the EU rule set.
 - **AC2.4** A German national licence and an EU centralised licence covering Germany get the same EU rule set.
-- **AC2.5** Where no rule set is recorded for a market and product type, the system shows "rule set unknown" and does not fall back to another rule set (such as the ASEAN guideline). Current examples: Brunei, Cambodia, Lao PDR, Myanmar, Thailand, Timor-Leste; US biologics; Argentine biologics.
+- **AC2.5** Where no rule set is recorded for a market and product type, the system shows "rule set unknown" and does not fall back to another rule set (such as the ASEAN guideline). Currently: Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste for all products; biologics in the US, Mexico, Argentina, Singapore, Malaysia, the Philippines, Indonesia and Viet Nam.
 - **AC2.6** No market gets the ASEAN Variation Guideline (AVG) as its rule set unless a primary source shows that market adopts it. Nobody files under the AVG itself; every ASEAN member applies its own scheme.
   - Malaysia gets its own rule set, the Malaysian Variation Guideline (2nd ed., July 2022). It is based on AVG Rev 2, but its `MaV`, `MiV-PA` and `MiV-N` are Malaysia's own categories.
   - The Philippines gets its own rule set, the Philippine Variation Guidelines (V1.0, 2020). It prints national `MaV-PH`, `MiV-PH` and `MiV-PH-N` families alongside AVG-numbered entries, and all of them are the Philippines' own categories.
