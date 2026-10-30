@@ -547,6 +547,8 @@ REPORTING_CATEGORIES: tuple[ReportingCategory, ...] = (
         rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.BR_RDC_913_2024].strid,
         filing_route=FilingRoute.PRIOR_APPROVAL,
     ),
+    # Route follows E3. Like SYN-HMP it is recorded in the HMP, which would make it DO_AND_DOCUMENT
+    # unless it also needs an individual filing (MEMO open question).
     ReportingCategory(
         strid=seed_strid("reporting_category", ReportingCategoryCode.BR_BIO_MENOR),
         code=ReportingCategoryCode.BR_BIO_MENOR,

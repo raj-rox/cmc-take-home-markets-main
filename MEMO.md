@@ -85,6 +85,8 @@ flowchart LR
 > | Are two product types enough, or do vaccines, ATMPs or herbals need their own rule sets? | Domain team |
 > | Must every classification record the rule set edition it used? | Product + QA / compliance |
 > | E3 lists a US no-filing category (`PQS-NOFILE`); E2 says the US has no such tier. Seeded following E3. Is it real? | Domain team (US regulatory specialist) |
+> | Brazil's `BIO-MENOR` is recorded in the product change history like `SYN-HMP`, yet E3 tags it notify at implementation. Does it need an individual filing, or is it do and document? Seeded following E3. | Domain team (Brazil regulatory lead) |
+> | Which edition of HSA's registration guidance do Singapore's categories come from? | Domain team (ASEAN regulatory lead) |
 > | Do the ASEAN national schemes cover biologics? Not seeded, so biologics there show "rule set unknown". | Domain team (ASEAN regulatory lead) |
 > | Which categories apply in each unconfirmed ASEAN country? Does Brunei's MaV/MiV procedure count as the AVG? | Domain team (ASEAN regulatory lead) |
 > | Thailand cites the AVG "alongside other frameworks". Which one wins on a conflict? | Domain team |

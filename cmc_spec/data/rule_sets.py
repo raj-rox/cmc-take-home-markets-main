@@ -121,7 +121,10 @@ RULE_SETS: tuple[RuleSet, ...] = (
         strid=seed_strid("rule_set", RuleSetCode.SG_HSA),
         code=RuleSetCode.SG_HSA,
         name="Singapore therapeutic product variations",
-        source="HSA Guidance on Therapeutic Product Registration in Singapore, Appendices 13-14",
+        source=(
+            "HSA Guidance on Therapeutic Product Registration in Singapore, Appendices 13-14 "
+            "(edition not in the evidence; to confirm)"
+        ),
         market_strids={MARKETS_BY_CODE[MarketCode.SG].strid},
         product_type_strids={PRODUCT_TYPES_BY_CODE[ProductTypeCode.SYNTHETIC].strid},
     ),
@@ -164,7 +167,8 @@ RULE_SETS: tuple[RuleSet, ...] = (
         name="Chinese post-approval changes",
         source=(
             "Provisions for Drug Registration (Order No. 27, 2020); "
-            "NMPA post-approval change management guidance"
+            "Measures for the Administration of Post-Approval Changes of Drugs (Trial), "
+            "NMPA Announcement No. 8 of 2021"
         ),
         market_strids={MARKETS_BY_CODE[MarketCode.CN].strid},
         product_type_strids={
