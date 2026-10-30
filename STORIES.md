@@ -37,7 +37,7 @@ These words name the concepts in the model and are used with one meaning through
 - **Market:** a country where a product can be licensed (Germany, Norway, Singapore).
 - **Regulator:** the body that grants licences and receives filings. A regulator acts for one or more markets: BfArM for Germany; the European Commission for every EU and EEA market.
 - **Licence:** a product's authorisation from one regulator, covering one or more markets.
-- **Rule set:** a published scheme of reporting categories, such as EU Regulation 1234/2008 or Brazil RDC 73/2016. It applies in given markets to a given product type.
+- **Rule set:** a published scheme of reporting categories, such as EU Regulation 1234/2008 or Brazil RDC 73/2016. It applies in one or more markets, to one or more product types.
 - **Product type:** the kind of product a rule set is written for. It comes from a seeded list, currently synthetic and biological.
 - **Reporting category:** one category within one rule set (EU `IB`, UK `IB`, Singapore `MIV-1`). It has a **filing route**: what the category requires.
 - **Filing route:** what a category requires, defined by when the change may be implemented relative to telling the regulator. One of these:
