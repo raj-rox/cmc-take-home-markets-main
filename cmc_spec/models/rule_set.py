@@ -13,6 +13,7 @@ from cmc_spec.models.product_type import ProductTypeRef
 
 class RuleSetCode(ReferenceCode):
     US_CFR_314_70 = "US_CFR_314_70"
+    US_CFR_601_12 = "US_CFR_601_12"
     EU_VARIATIONS = "EU_VARIATIONS"
     UK_VARIATIONS = "UK_VARIATIONS"
     CH_VARIATIONS = "CH_VARIATIONS"

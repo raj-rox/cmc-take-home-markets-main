@@ -1,8 +1,8 @@
 """The seeded rule sets. Rows written out in full; strids derived from the code.
 
 A market and product type no row covers has no rule set recorded ("rule set unknown"):
-Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste; and biologics in the US, Mexico,
-Argentina and the ASEAN members.
+Brunei, Cambodia, Lao PDR, Myanmar, Thailand and Timor-Leste; and biologics in Argentina and the
+ASEAN members.
 """
 
 from __future__ import annotations
@@ -22,6 +22,19 @@ RULE_SETS: tuple[RuleSet, ...] = (
         source="21 CFR 314.70; FDA guidance 'Changes to an Approved NDA or ANDA' (2004)",
         market_strids={MARKETS_BY_CODE[MarketCode.US].strid},
         product_type_strids={PRODUCT_TYPES_BY_CODE[ProductTypeCode.SYNTHETIC].strid},
+    ),
+    # Biologics run a parallel scheme with the same tiers (E2): a separate rule set, so a biologic
+    # never gets the drug categories.
+    RuleSet(
+        strid=seed_strid("rule_set", RuleSetCode.US_CFR_601_12),
+        code=RuleSetCode.US_CFR_601_12,
+        name="US changes to an approved BLA",
+        source=(
+            "21 CFR 601.12; FDA guidance 'Chemistry, Manufacturing, and Controls Changes to an "
+            "Approved Application: Certain Biological Products' (2021)"
+        ),
+        market_strids={MARKETS_BY_CODE[MarketCode.US].strid},
+        product_type_strids={PRODUCT_TYPES_BY_CODE[ProductTypeCode.BIOLOGICAL].strid},
     ),
     # One rule set on every route to a licence: centralised, mutual recognition, decentralised, national (E5).
     RuleSet(
@@ -176,15 +189,18 @@ RULE_SETS: tuple[RuleSet, ...] = (
         market_strids={MARKETS_BY_CODE[MarketCode.BR].strid},
         product_type_strids={PRODUCT_TYPES_BY_CODE[ProductTypeCode.BIOLOGICAL].strid},
     ),
-    # Mexico: synthetic only. Biologics also use administrativa / tecnica / cesion de derechos
-    # categories the evidence doesn't list, so Mexican biologics are "rule set unknown".
+    # Mexico: both product types. Biologics carry additional administrativa / tecnica / cesion de
+    # derechos subcategories on top of these tiers (E2); not seeded, see MEMO.
     RuleSet(
         strid=seed_strid("rule_set", RuleSetCode.MX_MCRS),
         code=RuleSetCode.MX_MCRS,
         name="Mexican modifications to registration conditions",
         source="Reglamento de Insumos para la Salud; MCRS acuerdos 2022-2023 (menor/moderada/mayor since 28 August 2023)",
         market_strids={MARKETS_BY_CODE[MarketCode.MX].strid},
-        product_type_strids={PRODUCT_TYPES_BY_CODE[ProductTypeCode.SYNTHETIC].strid},
+        product_type_strids={
+            PRODUCT_TYPES_BY_CODE[ProductTypeCode.SYNTHETIC].strid,
+            PRODUCT_TYPES_BY_CODE[ProductTypeCode.BIOLOGICAL].strid,
+        },
     ),
     # Argentina: synthetic only. Biologics moved to Disp. 4351/2026, whose categories aren't seeded.
     RuleSet(

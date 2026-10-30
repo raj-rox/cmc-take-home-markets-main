@@ -69,6 +69,11 @@ flowchart LR
 > **One change that triggers several categories on one licence** (EU grouping)
 > **v1:** record the most restrictive category; note the rest in reasoning.
 > **Model it when:** grouping or worksharing decisions come into scope.
+
+> [!WARNING]
+> **Mexico's biologic subcategories** (administrativa / técnica / cesión de derechos, on top of menor / moderada / mayor)
+> **v1:** biologics get the three MCRS tiers; the user names the subcategory in reasoning. All are prior approval, so the route is unaffected.
+> **Model it when:** the domain team lists them from a primary source.
  
 ---
  
@@ -80,7 +85,7 @@ flowchart LR
 > | Are two product types enough, or do vaccines, ATMPs or herbals need their own rule sets? | Domain team |
 > | Must every classification record the rule set edition it used? | Product + QA / compliance |
 > | E3 lists a US no-filing category (`PQS-NOFILE`); E2 says the US has no such tier. Seeded following E3. Is it real? | Domain team (US regulatory specialist) |
-> | Do Mexico's MCRS tiers and the ASEAN national schemes cover biologics? Not seeded, so biologics there show "rule set unknown". | Domain team |
+> | Do the ASEAN national schemes cover biologics? Not seeded, so biologics there show "rule set unknown". | Domain team (ASEAN regulatory lead) |
 > | Which categories apply in each unconfirmed ASEAN country? Does Brunei's MaV/MiV procedure count as the AVG? | Domain team (ASEAN regulatory lead) |
 > | Thailand cites the AVG "alongside other frameworks". Which one wins on a conflict? | Domain team |
 > | Is Viet Nam’s minor notification “notify at implementation” or “notify then wait”? | Domain team |

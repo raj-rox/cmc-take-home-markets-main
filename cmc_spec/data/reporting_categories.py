@@ -55,6 +55,48 @@ REPORTING_CATEGORIES: tuple[ReportingCategory, ...] = (
         rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.US_CFR_314_70].strid,
         filing_route=FilingRoute.NO_FILING,
     ),
+    # United States, biologics: 21 CFR 601.12. Same labels as the drug categories, separate categories.
+    ReportingCategory(
+        strid=seed_strid("reporting_category", ReportingCategoryCode.US_BLA_PAS),
+        code=ReportingCategoryCode.US_BLA_PAS,
+        label="PAS",
+        name="Prior Approval Supplement (major change)",
+        rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.US_CFR_601_12].strid,
+        filing_route=FilingRoute.PRIOR_APPROVAL,
+    ),
+    ReportingCategory(
+        strid=seed_strid("reporting_category", ReportingCategoryCode.US_BLA_CBE_30),
+        code=ReportingCategoryCode.US_BLA_CBE_30,
+        label="CBE-30",
+        name="Supplement: Changes Being Effected in 30 Days (moderate change)",
+        rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.US_CFR_601_12].strid,
+        filing_route=FilingRoute.NOTIFY_THEN_WAIT,
+    ),
+    ReportingCategory(
+        strid=seed_strid("reporting_category", ReportingCategoryCode.US_BLA_CBE_0),
+        code=ReportingCategoryCode.US_BLA_CBE_0,
+        label="CBE-0",
+        name="Supplement: Changes Being Effected (moderate change, immediate)",
+        rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.US_CFR_601_12].strid,
+        filing_route=FilingRoute.NOTIFY_AT_IMPLEMENTATION,
+    ),
+    ReportingCategory(
+        strid=seed_strid("reporting_category", ReportingCategoryCode.US_BLA_AR),
+        code=ReportingCategoryCode.US_BLA_AR,
+        label="AR",
+        name="Annual Report (minor change)",
+        rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.US_CFR_601_12].strid,
+        filing_route=FilingRoute.DO_AND_DOCUMENT,
+    ),
+    # E3 lists it for the FDA as a whole (CDER and CBER); same open question as the drug row.
+    ReportingCategory(
+        strid=seed_strid("reporting_category", ReportingCategoryCode.US_BLA_PQS_NOFILE),
+        code=ReportingCategoryCode.US_BLA_PQS_NOFILE,
+        label="PQS-NOFILE",
+        name="Change managed within the quality system (no filing)",
+        rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.US_CFR_601_12].strid,
+        filing_route=FilingRoute.NO_FILING,
+    ),
     # EU and EEA: Regulation (EC) No 1234/2008
     ReportingCategory(
         strid=seed_strid("reporting_category", ReportingCategoryCode.EU_IA),
