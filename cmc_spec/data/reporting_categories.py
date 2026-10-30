@@ -88,6 +88,8 @@ REPORTING_CATEGORIES: tuple[ReportingCategory, ...] = (
         rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.EU_VARIATIONS].strid,
         filing_route=FilingRoute.PRIOR_APPROVAL,
     ),
+    # Every EXT (and Saudi NEW-APP) is NEW_APPLICATION: E3's definitions say none is handled as a
+    # variation. E3 tags the UK and Swiss EXT prior_approval; their definitions still say new application.
     ReportingCategory(
         strid=seed_strid("reporting_category", ReportingCategoryCode.EU_EXT),
         code=ReportingCategoryCode.EU_EXT,
