@@ -2,8 +2,7 @@
 
 Not seeded:
 - tools that are not categories: US `CP`, EU `PACMP`, EU `ART5` (E3);
-- Swiss `OTHER`: a placeholder until Swissmedic assigns a category;
-- US `PQS-NOFILE`: a change that stays inside the quality system is "not affected".
+- Swiss `OTHER`: a placeholder until Swissmedic assigns a category.
 """
 
 from __future__ import annotations
@@ -46,6 +45,15 @@ REPORTING_CATEGORIES: tuple[ReportingCategory, ...] = (
         name="Annual Report (minor change)",
         rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.US_CFR_314_70].strid,
         filing_route=FilingRoute.DO_AND_DOCUMENT,
+    ),
+    # E3 lists it; E2 says the US has no no-filing tier. Seeded following E3 (MEMO open question).
+    ReportingCategory(
+        strid=seed_strid("reporting_category", ReportingCategoryCode.US_PQS_NOFILE),
+        code=ReportingCategoryCode.US_PQS_NOFILE,
+        label="PQS-NOFILE",
+        name="Change managed within the quality system (no filing)",
+        rule_set_strid=RULE_SETS_BY_CODE[RuleSetCode.US_CFR_314_70].strid,
+        filing_route=FilingRoute.NO_FILING,
     ),
     # EU and EEA: Regulation (EC) No 1234/2008
     ReportingCategory(

@@ -32,6 +32,7 @@ class ReportingCategoryCode(ReferenceCode):
     US_CBE_30 = "US_CBE_30"
     US_CBE_0 = "US_CBE_0"
     US_AR = "US_AR"
+    US_PQS_NOFILE = "US_PQS_NOFILE"
     EU_IA = "EU_IA"
     EU_IA_IN = "EU_IA_IN"
     EU_IB = "EU_IB"
