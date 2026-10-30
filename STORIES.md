@@ -37,16 +37,22 @@ These words name the concepts in the model and are used with one meaning through
 - **Market:** a country where a product can be licensed (Germany, Norway, Singapore).
 - **Regulator:** the body that grants licences and receives filings. A regulator acts for one or more markets: BfArM for Germany; the European Commission for every EU and EEA market.
 - **Licence:** a product's authorisation from one regulator, covering one or more markets.
-- **Rule set:** a published scheme of reporting categories, such as EU Regulation 1234/2008 or Brazil RDC 73/2016. It applies in given markets to a given type of product (synthetic or biological).
+- **Rule set:** a published scheme of reporting categories, such as EU Regulation 1234/2008 or Brazil RDC 73/2016. It applies in given markets to a given product type.
+- **Product type:** the kind of product a rule set is written for. It comes from a seeded list, currently synthetic and biological.
 - **Reporting category:** one category within one rule set (EU `IB`, UK `IB`, Singapore `MIV-1`). It has a **filing route**: what the category requires.
-- **Filing route:** one of these:
-  - prior approval
-  - notify then wait
-  - notify at implementation
-  - do and document
-  - no filing
-  - new application
-- **Classification:** what the user records for one product in one market on one change.
+- **Filing route:** what a category requires, defined by when the change may be implemented relative to telling the regulator. One of these:
+
+  | Route | Definition | Examples |
+  |---|---|---|
+  | Prior approval | File first; implement only once the regulator approves. | US `PAS`, EU `II` |
+  | Notify then wait | File first; implement after a set standstill unless the regulator objects. | US `CBE-30`, EU `IB`, Singapore `MIV-2-NOTIFICATION` |
+  | Notify at implementation | Implement, then file an individual notification at once or within a set window. | US `CBE-0`, EU `IA_IN`, Singapore `MIV-2-DO-AND-TELL` |
+  | Do and document | Implement and record it; report only in a periodic, bundled filing or in the company's own change history. | US `AR` (annual report), EU `IA` (annual update), Brazil `BR-SYN-HMP` |
+  | No filing | Never reported to the regulator. | US `PQS-NOFILE`, Singapore `NO-NOTIFICATION` |
+  | New application | Can't be filed as a variation at all; needs an extension or new licence application. | EU `EXT`, Saudi `NEW-APP` |
+
+  The test that separates the two "implement first" routes: an individual filing for this change means notify at implementation; a periodic bundle means do and document.
+- **Classification:** what the user records for one licence on one change. A licence belongs to one product, so this is per product × licence. It is shown once for each market the licence covers.
 
 ## Stories
 
@@ -56,16 +62,21 @@ These words name the concepts in the model and are used with one meaning through
 - **AC1.1** A licence names one product, one regulator and at least one market.
 - **AC1.2** A licence can only cover markets its regulator acts for. A European Commission licence can cover Germany, France and Norway. An MHRA licence cannot cover Germany.
 - **AC1.3** A product has at most one licence covering any one market. Recording a German national licence for a product that already has an EU centralised licence is rejected.
-- **AC1.4** A centralised licence is one record covering many markets, not one record per market.
+- **AC1.4** Recording one EU centralised licence shows the product as licensed in Germany, France and Norway. Withdrawing that licence removes all three together.
+- **AC1.5** All markets a licence covers must share one rule set for that product; otherwise the licence is rejected. An EU centralised licence covering Germany, France and Norway passes, because all three use the EU rule set.
 
 ### S2. See whose rules apply to a licence
-*As the RA CMC lead, for each licence I see the rule set that applies in each market it covers. I never classify against the wrong rules.*
+*As the RA CMC lead, for each licence I see the one rule set that applies to it. I never classify against the wrong rules.*
 
-- **AC2.1** The rule set is worked out from the market and whether the product is synthetic or biological. The user never chooses it.
+- **AC2.1** The rule set is worked out from the market and the product's product type. The user never chooses it.
 - **AC2.2** In Brazil, a synthetic product gets RDC 73/2016 and a biological product gets RDC 913/2024.
 - **AC2.3** A UK licence gets the MHRA rule set. A Swiss licence gets the Swissmedic rule set. Neither gets the EU rule set.
 - **AC2.4** A German national licence and an EU centralised licence covering Germany get the same EU rule set.
-- **AC2.5** Where no rule set is established, the system shows "rule set unknown" and does not fall back to the ASEAN guideline. These markets are Cambodia, Lao PDR, Myanmar and Timor-Leste, and US or Argentine biologics.
+- **AC2.5** Where no rule set is recorded for a market and product type, the system shows "rule set unknown" and does not fall back to another rule set (such as the ASEAN guideline). Current examples: Cambodia, Lao PDR, Myanmar, Timor-Leste; US biologics; Argentine biologics.
+- **AC2.6** No market gets the ASEAN Variation Guideline (AVG) as its rule set unless a primary source shows that market adopts it. Nobody files under the AVG itself; every ASEAN member applies its own scheme.
+  - Malaysia gets its own rule set, the Malaysian Variation Guideline (2nd ed., July 2022). It is based on AVG Rev 2, but its `MaV`, `MiV-PA` and `MiV-N` are Malaysia's own categories.
+  - Brunei shows "rule set unknown". The primary source shows only that BDMCA publishes MaV/MiV submission procedures, not that it adopts the AVG or what its full category list is.
+- **AC2.7** A product can't be recorded without a product type (synthetic or biological).
 
 ### S3. See the categories a rule set allows
 *As the RA CMC lead, I see every reporting category in the applicable rule set, with its filing route and the document it comes from. I pick from the real list, not from memory.*
@@ -73,36 +84,37 @@ These words name the concepts in the model and are used with one meaning through
 - **AC3.1** Each reporting category belongs to exactly one rule set. UK `IB` and EU `IB` are separate categories, even though their codes match.
 - **AC3.2** Each reporting category has exactly one filing route.
 - **AC3.3** Tools that are not categories are not offered as categories: comparability protocols, PACMPs, EU Article 5 requests, South Africa's Z-code and reliance codes.
-- **AC3.4** Each rule set shows its governing document and edition. For example, the UK shows the 2013 EU classification guideline and the EU shows Guideline C/2025/5045.
+- **AC3.4** Each rule set shows its governing document and edition. For example, the UK shows the 2013 EU classification guideline and the EU shows Guideline C/2025/5045. Each rule set holds only its current edition, with no history. When an edition is replaced, the rule set is updated in place.
 
-### S4. Get the full list of lines to classify
-*As the RA CMC lead, when I open a change I get one line for every market where each affected product is licensed. Nothing is missed and nothing is counted twice.*
+### S4. Get the full list of licences to classify
+*As the RA CMC lead, when I open a change I get every licence held by each affected product, shown against every market it covers. Nothing is missed and nothing is counted twice.*
 
-- **AC4.1** Take a change touching one product licensed by the FDA and by the European Commission (centralised). It has lines for the United States, Germany, France and Norway, each exactly once.
+- **AC4.1** Take a change touching one product licensed by the FDA and by the European Commission (centralised). It needs two classifications, one per licence, shown as four market rows: United States, Germany, France and Norway, each exactly once.
 - **AC4.2** An affected product with no licence recorded is flagged on the change. It is not silently left out.
-- **AC4.3** If a licence is added after classification started, its new markets appear as lines still to classify.
+- **AC4.3** If a licence is added after classification started, it appears as not yet classified.
 
-### S5. Classify a line
-*As the RA CMC lead, I record a reporting category and my reasoning for a product in a market. As regional RA, I can review that reasoning.*
+### S5. Classify a licence
+*As the RA CMC lead, I record a reporting category and my reasoning for a licence on a change, so the classification can be defended later.*
 
-- **AC5.1** The category must belong to the rule set that applies to that line. Recording EU `IB` on a Swiss line is rejected.
+- **AC5.1** The category must belong to the licence's rule set. Recording EU `IB` against a Swissmedic licence is rejected.
 - **AC5.2** The reasoning is required, for example the guideline condition met.
-- **AC5.3** The line's filing route is the category's filing route, shown, not re-entered.
-- **AC5.4** Under a licence covering several markets, every market gets the same category. Germany and France under one centralised licence cannot be classified differently.
+- **AC5.3** Where a rule set applies, the filing route is the category's filing route, shown, not re-entered. A filing route cannot be typed in directly.
+- **AC5.4** A classification is recorded once per licence. Germany and France under one centralised licence show the same category because they share one classification, and cannot be classified differently.
 
-### S6. Say why a line has no category
-*As the RA CMC lead, when a line can't be classified or the change doesn't touch that licence, I record that explicitly with a reason. A blank never means "no impact".*
+### S6. Say why a licence has no category
+*As the RA CMC lead, when a licence can't be given a category, or the change doesn't touch it, I record that explicitly with a reason. A blank never means "no impact".*
 
-- **AC6.1** A line is in one of three states:
+- **AC6.1** A classification is in one of three states:
   - **not yet classified** (the default)
-  - **classified** (has a category)
+  - **classified** (has a filing route, either from a category or, where the rule set is unknown, recorded directly)
   - **not affected** (the change doesn't touch what this licence registers; a reason is required)
-- **AC6.2** A line whose rule set is unknown cannot be classified. It stays visible as not yet classified, showing "rule set unknown".
-- **AC6.3** "Not affected" is different from a "no filing" category. Singapore's `NO-NOTIFICATION` is a classification. "This site isn't registered in Mexico" is "not affected".
+- **AC6.2** Where the rule set is unknown, the user can't pick a category, but can record a filing route with reasoning. A Cambodia licence can be recorded as prior approval with reasoning, but no category can be picked.
+- **AC6.3** A classification without a category is marked "no category: rule set unknown" wherever it appears. Reviewers can then tell it apart from a category picked from published rules.
+- **AC6.4** "Not affected" is different from a "no filing" category. Singapore's `NO-NOTIFICATION` is a category. "This site isn't registered in Mexico" is "not affected".
 
 ### S7. Review the impact as a whole
 *As the RA CMC lead presenting to the change board, I see every product and market on the change with its category and filing route. I can show which markets need prior approval and that nothing has been left out.*
 
-- **AC7.1** The view shows product, market, regulator, category and filing route for every line.
-- **AC7.2** The assessment counts as complete only when no line is still not yet classified. The number still open is shown.
-- **AC7.3** The view can be filtered to the lines whose filing route is prior approval.
+- **AC7.1** The view has one row per market each licence covers, showing product, market, regulator, category and filing route.
+- **AC7.2** The assessment counts as complete only when no classification is still not yet classified. The number of licences still open is shown.
+- **AC7.3** The view can be filtered to the market rows whose filing route is prior approval. This includes classifications whose route was recorded without a category (AC6.2).
