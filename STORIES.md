@@ -28,7 +28,7 @@ Everything after step 6, planning and preparing the filings, is out of scope.
 
 It refuses a category from the wrong rules, and it never lets an unknown read as "no impact".
 
-*Source: the failure modes in steps 3–5 come from the evidence (E2–E5). The roles and the order of work are general industry practice, to be validated with RA users (see MEMO.md, open questions).*
+*Source: the failure modes in steps 3–5 come from the evidence (E2–E5). The roles and the order of work are general industry practice.*
 
 ## Terms
 
